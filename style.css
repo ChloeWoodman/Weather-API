@@ -1,0 +1,106 @@
+body {
+  background: #e2e4e6; /* Use a comfortable blue and gray gradient as the background color */
+  background: linear-gradient(to bottom, #e2e4e6 0%, #ADD8E6 100%) no-repeat fixed;
+  font-family: Arial, sans-serif;
+}
+
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#city {
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 auto; /* Center the input field horizontally */
+}
+
+#city:focus {
+  outline: none;
+}
+
+#get-weather-button {
+  display: block;
+  margin: 0 auto;
+  background-color: #007aff;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#weather {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+#weather div {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+#location {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#temperature {
+  font-size: 72px;
+  font-weight: bold;
+}
+
+#description {
+  font-size: 24px;
+}
+
+#humidity, #pressure, #wind, #sunrise, #sunset {
+  font-size: 20px;
+}
+
+#humidity::before, #pressure::before, #wind::before, #sunrise::before, #sunset::before {
+  display: inline-block;
+  content: "";
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#humidity::before {
+  background-image: url("https://goblueox.com/wp-content/uploads/2019/08/1-1-1024x594.jpg");
+}
+
+#pressure::before {
+  background-image: url("https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/advice/maps-satellite-images/visual-cortex-pressure-bars-over-globe.jpg/visual-cortex-pressure-bars-over-globe.jpg/metofficegovuk%3AheroXLarge");
+}
+
+#wind::before {
+  background-image: url("https://images.unsplash.com/photo-1505672678657-cc7037095e60?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+}
+
+#sunrise::before {
+  background-image: url("https://www.surfertoday.com/images/stories/sunrisesunsettime.jpg");
+}
+
+#sunset::before {
+  background-image: url("https://images.unsplash.com/photo-1616036740257-9449ea1f6605?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+}
