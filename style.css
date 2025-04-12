@@ -1,36 +1,131 @@
+/* General Styles */
 body {
-  background: #e2e4e6; /* Use a comfortable blue and gray gradient as the background color */
   background: linear-gradient(to bottom, #e2e4e6 0%, #ADD8E6 100%) no-repeat fixed;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  transition: background-color 0.3s ease;
+  margin: 0;
 }
 
-
-h1 {
-  text-align: center;
-  margin-top: 40px;
-}
-
-#city {
-  font-size: 20px;
-  padding: 10px;
-  border: none;
+/* Unit Switch Styling */
+.unit-switch {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px 16px;
   border-radius: 5px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  display: block;
-  margin: 0 auto; /* Center the input field horizontally */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: auto;
 }
 
-#city:focus {
+/* Style the label of the unit switch */
+.unit-switch label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 8px;
+  color: #333;
+}
+
+/* Style the select dropdown */
+#unit-toggle {
+  font-size: 16px;
+  padding: 6px 12px;
+  border: 2px solid #007aff;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  width: auto;
+}
+
+/* Add hover and focus effects to the select dropdown */
+#unit-toggle:hover, #unit-toggle:focus {
+  background-color: #e0f7fa;
+  border-color: #007aff;
   outline: none;
 }
 
-#get-weather-button {
-  display: block;
-  margin: 0 auto;
+/* Dark Mode Styling */
+body.dark-mode {
+  background: linear-gradient(to bottom, #1e1e1e 0%, #3a3a3a 100%) no-repeat fixed;
+  color: white;
+}
+
+/* Dark background overlay */
+body.dark-mode .background-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Adjust opacity for desired darkness */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Make sure the overlay is behind content */
+}
+
+/* Dark Mode Button Styling */
+body.dark-mode #get-weather-button,
+body.dark-mode #geo-button {
+  background-color: #444; /* Set background color to a darker shade */
+  color: #bbb; /* Make text color lighter for contrast */
+  cursor: not-allowed; /* Optionally, disable button interaction */
+}
+
+/* Button hover effect for dark mode */
+body.dark-mode #get-weather-button:hover,
+body.dark-mode #geo-button:hover {
+  background-color: #666; /* Lighter gray when hovering */
+}
+
+
+/* Dark Mode adjustments for unit switch */
+body.dark-mode .unit-switch {
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+body.dark-mode .unit-switch label {
+  color: white;
+}
+
+body.dark-mode #unit-toggle {
+  background-color: #444;
+  color: white;
+  border-color: #007aff;
+}
+
+body.dark-mode #unit-toggle:hover, body.dark-mode #unit-toggle:focus {
+  background-color: #007aff;
+  color: white;
+  border-color: #004e7c;
+}
+
+/* Dark mode toggle button (kept on the top right) */
+#dark-mode-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007aff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode #dark-mode-toggle {
+  background-color: #333;
+}
+
+/* Button styles for other elements */
+#get-weather-button, #geo-button {
+  margin: 10px;
   background-color: #007aff;
   color: #fff;
   font-size: 18px;
@@ -41,20 +136,60 @@ h1 {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-#weather {
+/* Weather information styles */
+#daily-forecast {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  width: 100%;
+}
+
+#daily-forecast div {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+#city {
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 30px 0 10px;
+  width: 90%;
   max-width: 400px;
-  margin: 0 auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#weather-container {
+  max-width: 400px;
+  width: 100%;
   margin-top: 30px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
+  transition: background-color 0.3s ease;
 }
 
-#weather div {
+body.dark-mode #weather-container {
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+#weather-container div {
   margin-bottom: 10px;
   font-size: 18px;
-  color: #333;
+}
+
+#error-message {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 #location {
@@ -71,36 +206,141 @@ h1 {
   font-size: 24px;
 }
 
-#humidity, #pressure, #wind, #sunrise, #sunset {
-  font-size: 20px;
+#humidity::before { content: "\1F4A7 "; }
+#pressure::before { content: "\1F4C8 "; }
+#wind::before { content: "\1F32C\FE0F "; }
+#sunrise::before { content: "\1F305 "; }
+#sunset::before { content: "\1F307 "; }
+
+/* Layout for the buttons below the input field, side by side */
+#buttons-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-#humidity::before, #pressure::before, #wind::before, #sunrise::before, #sunset::before {
-  display: inline-block;
-  content: "";
-  height: 20px;
-  width: 20px;
-  margin-right: 10px;
-  background-repeat: no-repeat;
-  background-position: center center;
+/* Adjust button size */
+#get-weather-button, #geo-button {
+  flex: 1;
+  max-width: 200px; /* Makes the buttons longer */
+  padding: 8px 20px; /* Reduces the height and increases width */
+  font-size: 16px; /* Adjusts the font size to make it more proportional */
 }
 
-#humidity::before {
-  background-image: url("https://goblueox.com/wp-content/uploads/2019/08/1-1-1024x594.jpg");
+/* Optional: Reduce the font size for smaller buttons */
+#get-weather-button, #geo-button {
+  font-size: 14px; /* Smaller font size */
 }
 
-#pressure::before {
-  background-image: url("https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/advice/maps-satellite-images/visual-cortex-pressure-bars-over-globe.jpg/visual-cortex-pressure-bars-over-globe.jpg/metofficegovuk%3AheroXLarge");
+/* Adjust input field size */
+#city {
+  width: 90%;
+  max-width: 400px;
 }
 
-#wind::before {
-  background-image: url("https://images.unsplash.com/photo-1505672678657-cc7037095e60?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+/* Mobile Responsiveness: Media Query for Smaller Devices */
+@media (max-width: 768px) {
+  /* Layout adjustments */
+  body {
+    padding: 10px;
+  }
+
+  /* Adjust unit switch for smaller screens */
+  .unit-switch {
+    top: 10px;
+    left: 10px;
+    padding: 6px 12px;
+  }
+
+  /* Input field adjustments */
+  #city {
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  /* Weather container adjustments */
+  #weather-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* Button adjustments */
+  #get-weather-button,
+  #geo-button {
+    font-size: 14px;
+    padding: 8px 16px;
+    max-width: 100%;  /* Ensure buttons are full-width on mobile */
+  }
+
+  /* Adjust layout for buttons below the input */
+  #buttons-container {
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+  }
+
+  /* Adjust unit toggle button for mobile */
+  #unit-toggle {
+    font-size: 14px;
+  }
+
+  /* Adjust for dark mode toggle */
+  #dark-mode-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+  }
+
+  /* Adjust layout for weather forecast items */
+  #daily-forecast {
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 5px;
+  }
+
+  #daily-forecast div {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  /* Reduce font size for smaller devices */
+  #temperature {
+    font-size: 50px;
+  }
+
+  #description {
+    font-size: 18px;
+  }
+
+  /* Adjust button and layout for mobile view */
+  #get-weather-button,
+  #geo-button {
+    max-width: 100%; /* Buttons should be full width on mobile */
+    font-size: 14px;
+  }
+
+  /* Adjust weather container content size */
+  #weather-container div {
+    font-size: 16px;
+  }
 }
 
-#sunrise::before {
-  background-image: url("https://www.surfertoday.com/images/stories/sunrisesunsettime.jpg");
-}
+/* Further mobile responsiveness for smaller devices */
+@media (max-width: 480px) {
+  /* For very small screens, reduce font size even more */
+  #temperature {
+    font-size: 40px;
+  }
 
-#sunset::before {
-  background-image: url("https://images.unsplash.com/photo-1616036740257-9449ea1f6605?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  #description {
+    font-size: 16px;
+  }
+
+  /* Adjust buttons for small screens */
+  #get-weather-button,
+  #geo-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }

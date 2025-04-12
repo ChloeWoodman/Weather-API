@@ -1,26 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Website</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <h1>Weather Website</h1>
-  <input type="text" id="city" placeholder="Enter city name">
-  <button id="get-weather-button">Get Weather</button>
-  <div id="weather"></div>
-  <div id="weather">
-  <div id="location"></div>
-  <div id="temperature"></div>
-  <div id="description"></div>
-  <div id="humidity"></div>
-  <div id="pressure"></div>
-  <div id="wind"></div>
-  <div id="sunrise"></div>
-  <div id="sunset"></div>
-</div>
 
-  
+  <input type="text" id="city" placeholder="Enter city name">
+
+  <!-- Buttons Container -->
+  <div id="buttons-container">
+    <!-- The "Get Weather" button -->
+    <button id="get-weather-button">Get Weather</button>
+
+    <!-- The "Use My Location" button -->
+    <button id="geo-button">Use My Location</button>
+  </div>
+
+  <!-- Dark mode toggle button -->
+  <button id="dark-mode-toggle" class="mode-toggle-btn">🌙</button>
+
+  <!-- Unit Switch -->
+  <div class="unit-switch">
+    <label for="unit-toggle">Units:</label>
+    <select id="unit-toggle">
+      <option value="metric">Celsius</option>
+      <option value="imperial">Fahrenheit</option>
+    </select>
+  </div>
+
+  <div id="error-message" class="error"></div>
+
+  <div id="weather">
+    <div id="location"></div>
+    <div id="temperature"></div>
+    <div id="description"></div>
+    <div id="humidity"></div>
+    <div id="pressure"></div>
+    <div id="wind"></div>
+    <div id="sunrise"></div>
+    <div id="sunset"></div>
+  </div>
+
+  <div id="recent-cities"></div>
+  <div id="daily-forecast"></div>
+
   <script src="app.js"></script>
 </body>
 </html>
