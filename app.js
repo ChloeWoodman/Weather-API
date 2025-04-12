@@ -72,22 +72,22 @@ function updateBackground(weatherCondition) {
   switch (weatherCondition.toLowerCase()) {
     case 'clear':
     case 'clear sky':
-      body.style.background = "url('graphics/clearskies.gif') no-repeat center center fixed";
+      body.style.background = "url('./graphics/clearskies.gif') no-repeat center center fixed";
       break;
     case 'clouds':
-      body.style.background = "url('graphics/cloudskies.gif') no-repeat center center fixed";
+      body.style.background = "url('./graphics/cloudskies.gif') no-repeat center center fixed";
       break;
     case 'rain':
-      body.style.background = "url('graphics/rain.gif') no-repeat center center fixed";
+      body.style.background = "url('./graphics/rain.gif') no-repeat center center fixed";
       break;
     case 'snow':
-      body.style.background = "url('graphics/snowskies.gif') no-repeat center center fixed";
+      body.style.background = "url('./graphics/snowskies.gif') no-repeat center center fixed";
       break;
     case 'thunderstorm':
-      body.style.background = "url('graphics/stormyskies.gif') no-repeat center center fixed";
+      body.style.background = "url('./graphics/stormyskies.gif') no-repeat center center fixed";
       break;
     case 'mist':
-      body.style.background = "url('graphics/mistyskies.gif') no-repeat center center fixed";
+      body.style.background = "url('./graphics/mistyskies.gif') no-repeat center center fixed";
       break;
   }
 
